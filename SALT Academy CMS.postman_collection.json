@@ -1,0 +1,2450 @@
+{
+	"info": {
+		"_postman_id": "3db5d1ef-3120-4498-bcbe-8321e0f14a05",
+		"name": "SALT Academy CMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4355528"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"ACCESS_TOKEN\", pm.response.json().data.access_token);",
+									"pm.environment.set(\"REFRESH_TOKEN\", pm.response.json().data.refresh_token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"author@example.com\",\n    \"password\": \"author123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/login",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "574"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23e-tYBtQos/DfZsi8BZaZGBMc1BP+s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Feb 2023 17:58:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwibmFtZSI6eyJmaXJzdCI6IkFkbWluIiwibGFzdCI6IiIsImZ1bGwiOiJBZG1pbiJ9LCJpc19hZG1pbmlzdHJhdG9yIjpmYWxzZSwiaWF0IjoxNjc3MzQ3ODg2LCJleHAiOjE2NzczNTE0ODZ9.23zHJqZ2BrRE7Hr7a4dGCEaKOU8vhsD-mHaeyHWAqJQ\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwibmFtZSI6eyJmaXJzdCI6IkFkbWluIiwibGFzdCI6IiIsImZ1bGwiOiJBZG1pbiJ9LCJpc19hZG1pbmlzdHJhdG9yIjpmYWxzZSwiaWF0IjoxNjc3MzQ3ODg2fQ.ETY3ZPf5Xwsu1h1GwkRKBXM5aifQ3Qoh3doY_sW-TSo\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/me",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/me",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"af-h6WbGXsQ9sLrcsk1/QLgYLDfq7A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Feb 2023 17:58:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"email\": \"admin@example.com\",\n            \"name\": {\n                \"first\": \"Admin\",\n                \"last\": \"\",\n                \"full\": \"Admin\"\n            },\n            \"is_administrator\": false,\n            \"iat\": 1677347886,\n            \"exp\": 1677351486\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"author2@example.com\",\n    \"first_name\": \"Author 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/register",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"author2@example.com\",\n    \"first_name\": \"Author 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/register",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-iJxWCbV7by6xfsjPDZGwRnnMT0k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Feb 2023 19:06:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"email\": \"author2@example.com\",\n        \"name\": {\n            \"first\": \"Author 2\",\n            \"last\": \"\",\n            \"full\": \"Author 2\"\n        },\n        \"is_administrator\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"89edc30bc342043859f1447b2760183ce149c06fd1973612faca48ba88cd44d683037fa3cce76ece98a8f568aa1eacd9\",\n    \"password\": \"author1234\",\n    \"password_confirmation\": \"author1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/reset-password",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reset Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"98be5c39affee6ce58a2bb628b166ac61fcac4b393b78cf889a420cc7c8cd91d0f8bbb876c78f6c79df266aa08dd5c55\",\n    \"password\": \"author1234\",\n    \"password_confirmation\": \"author1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/reset-password",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 11:05:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/change-name",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"change-name"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/change-name",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"change-name"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 12:21:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"author123\",\n    \"password_confirmation\": \"author123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/update-password",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"update-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"author123\",\n    \"password_confirmation\": \"author123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/update-password",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"update-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 12:28:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Authors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/authors",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Authors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/authors",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"authors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-ytcO3ruWYTqMpiuLvoPnqO3kmbQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 19:37:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"email\": \"author2@example.com\",\n            \"name\": \"John Doe\"\n        },\n        {\n            \"email\": \"author@example.com\",\n            \"name\": \"Author\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/authors/{{EMAIL}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"authors",
+								"{{EMAIL}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Author",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/authors/{{EMAIL}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"authors",
+										"{{EMAIL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 19:45:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Get Featured Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/featured-articles",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"featured-articles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Featured Articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/featured-articles",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"featured-articles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "889"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"379-JFPLDhIBQLQ2IVO3M25oJbc1KyY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 17:50:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"slug\": \"this-is-title-4-d0c42341126a\",\n            \"title\": \"This is Title 4\",\n            \"excerpt\": \"This is excerpt.\",\n            \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n            \"author_name\": \"Author\",\n            \"tags\": [\n                \"tag1\",\n                \"tag2\",\n                \"tag3\"\n            ],\n            \"date\": {\n                \"created_at\": \"2023-02-26T17:26:36.000Z\",\n                \"updated_at\": \"2023-02-26T17:26:36.000Z\"\n            }\n        },\n        {\n            \"slug\": \"this-is-title-3\",\n            \"title\": \"This is title 3\",\n            \"excerpt\": \"This is excerpt 3.\",\n            \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n            \"author_name\": \"Author\",\n            \"tags\": [\n                \"tag1\",\n                \"tag2\",\n                \"tag3\"\n            ],\n            \"date\": {\n                \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n            }\n        },\n        {\n            \"slug\": \"this-is-title-2\",\n            \"title\": \"This is title 2\",\n            \"excerpt\": \"This is excerpt 2.\",\n            \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n            \"author_name\": \"Author\",\n            \"tags\": [\n                \"tag1\",\n                \"tag2\",\n                \"tag3\"\n            ],\n            \"date\": {\n                \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/articles",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "author@example.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/articles",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1230"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4ce-6b+eb8FND+n7DnRTEao0/u7zxUw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 17:41:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"articles\": [\n            {\n                \"slug\": \"this-is-title-4-d0c42341126a\",\n                \"title\": \"This is Title 4\",\n                \"excerpt\": \"This is excerpt.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-26T17:26:36.000Z\",\n                    \"updated_at\": \"2023-02-26T17:26:36.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title\",\n                \"title\": \"This is title\",\n                \"excerpt\": \"This is excerpt.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-2\",\n                \"title\": \"This is title 2\",\n                \"excerpt\": \"This is excerpt 2.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-3\",\n                \"title\": \"This is title 3\",\n                \"excerpt\": \"This is excerpt 3.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            }\n        ],\n        \"paging\": {\n            \"page\": 1,\n            \"pages\": 1,\n            \"limit\": 10,\n            \"total\": 4\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Articles By Author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/articles?author=author@example.com",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "author",
+											"value": "author@example.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1253"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e5-gPoV3Fu/0QZUCD7CpWZqUCmSNnM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 18:45:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"articles\": [\n            {\n                \"slug\": \"this-is-title-4-d0c42341126a\",\n                \"title\": \"This is Title 4 Updated\",\n                \"excerpt\": \"This is excerpt updated.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\",\n                    \"tag4\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-26T17:26:36.000Z\",\n                    \"updated_at\": \"2023-02-26T18:27:39.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title\",\n                \"title\": \"This is title\",\n                \"excerpt\": \"This is excerpt.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-2\",\n                \"title\": \"This is title 2\",\n                \"excerpt\": \"This is excerpt 2.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-3\",\n                \"title\": \"This is title 3\",\n                \"excerpt\": \"This is excerpt 3.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            }\n        ],\n        \"paging\": {\n            \"page\": 1,\n            \"pages\": 1,\n            \"limit\": 10,\n            \"total\": 4\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"This is Title 4\",\n    \"content\": \"<p>This is content.</p>\",\n    \"excerpt\": \"This is excerpt.\",\n    \"image_id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \"tag3\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/articles",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Article",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"This is Title 4\",\n    \"content\": \"<p>This is content.</p>\",\n    \"excerpt\": \"This is excerpt.\",\n    \"image_id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \"tag3\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/articles",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "587"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24b-7UjiKzSpEiZnR6EwbQokkiYQUNw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 16:46:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"slug\": \"this-is-title-4-115522d956eb\",\n        \"title\": \"This is Title 4\",\n        \"content\": \"<p>This is content.</p>\",\n        \"excerpt\": \"This is excerpt.\",\n        \"image\": {\n            \"id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n            \"url\": {\n                \"original\": \"http://example.com/original.jpg\",\n                \"thumbnail\": \"http://example.com/thumbnail.jpg\"\n            },\n            \"alt\": \"Example\",\n            \"dimension\": {\n                \"height\": 1920,\n                \"width\": 1080\n            }\n        },\n        \"author\": {\n            \"name\": \"Author\",\n            \"email\": \"author@example.com\"\n        },\n        \"tags\": [\n            \"tag1\",\n            \"tag2\",\n            \"tag3\"\n        ],\n        \"related_articles\": [],\n        \"is_published\": false,\n        \"date\": {\n            \"created_at\": \"2023-02-26T16:46:50.958Z\",\n            \"updated_at\": \"2023-02-26T16:46:50.958Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"articles",
+								"{{SLUG}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Article",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles",
+										"{{SLUG}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1428"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"594-SDqZOyjzUAI/HcUAklm8rWQwSg0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 17:55:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"slug\": \"this-is-title\",\n        \"title\": \"This is title\",\n        \"content\": \"<p>This is content.</p>\",\n        \"excerpt\": \"This is excerpt.\",\n        \"image\": {\n            \"id\": \"66266476-af7d-4d23-94dd-8c9c2280baa7\",\n            \"url\": {\n                \"original\": \"http://example.com/original.jpg\",\n                \"thumbnail\": \"http://example.com/thumbnail.jpg\"\n            },\n            \"alt\": \"Example\",\n            \"dimension\": {\n                \"height\": 1920,\n                \"width\": 1080\n            }\n        },\n        \"author\": {\n            \"name\": \"Author\",\n            \"email\": \"author@example.com\"\n        },\n        \"tags\": [\n            \"tag1\",\n            \"tag2\",\n            \"tag3\"\n        ],\n        \"related_articles\": [\n            {\n                \"slug\": \"this-is-title-4-d0c42341126a\",\n                \"title\": \"This is Title 4\",\n                \"excerpt\": \"This is excerpt.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-26T17:26:36.000Z\",\n                    \"updated_at\": \"2023-02-26T17:26:36.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-2\",\n                \"title\": \"This is title 2\",\n                \"excerpt\": \"This is excerpt 2.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            },\n            {\n                \"slug\": \"this-is-title-3\",\n                \"title\": \"This is title 3\",\n                \"excerpt\": \"This is excerpt 3.\",\n                \"image_thumbnail_url\": \"http://example.com/thumbnail.jpg\",\n                \"author_name\": \"Author\",\n                \"tags\": [\n                    \"tag1\",\n                    \"tag2\",\n                    \"tag3\"\n                ],\n                \"date\": {\n                    \"created_at\": \"2023-02-23T19:49:55.000Z\",\n                    \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n                }\n            }\n        ],\n        \"is_published\": true,\n        \"date\": {\n            \"created_at\": \"2023-02-23T19:49:55.000Z\",\n            \"updated_at\": \"2023-02-23T19:49:55.000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"This is Title 4 Updated\",\n    \"content\": \"<p>This is content updated.</p>\",\n    \"excerpt\": \"This is excerpt updated.\",\n    \"image_id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \"tag3\",\n        \"tag4\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"articles",
+								"{{SLUG}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Article",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"This is Title 4 Updated\",\n    \"content\": \"<p>This is content updated.</p>\",\n    \"excerpt\": \"This is excerpt updated.\",\n    \"image_id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \"tag3\",\n        \"tag4\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles",
+										"{{SLUG}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 18:10:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Publish Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/publish-article/{{SLUG}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"publish-article",
+								"{{SLUG}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Publish Article",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/publish-article/{{SLUG}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"publish-article",
+										"{{SLUG}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 18:25:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Unpublish Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/unpublish-article/{{SLUG}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"unpublish-article",
+								"{{SLUG}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unpublish Article",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/unpublish-article/{{SLUG}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"unpublish-article",
+										"{{SLUG}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 18:27:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"articles",
+								"{{SLUG}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Article",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/articles/{{SLUG}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"articles",
+										"{{SLUG}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Feb 2023 19:02:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Get Images",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/images",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"images"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "author@example.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Images",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/images",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "330"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14a-r6FM8HBZL6HJJBWPu1wqLG99cHw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 16:29:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"images\": [\n            {\n                \"id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n                \"url\": {\n                    \"original\": \"http://example.com/original.jpg\",\n                    \"thumbnail\": \"http://example.com/thumbnail.jpg\"\n                },\n                \"alt\": \"Example\",\n                \"dimension\": {\n                    \"height\": 1920,\n                    \"width\": 1080\n                },\n                \"author_email\": \"author@example.com\"\n            }\n        ],\n        \"paging\": {\n            \"page\": 1,\n            \"pages\": 1,\n            \"limit\": 10,\n            \"total\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Images By Author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/images?author=author@example.com",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "author",
+											"value": "author@example.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "330"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14a-r6FM8HBZL6HJJBWPu1wqLG99cHw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 16:35:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"images\": [\n            {\n                \"id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n                \"url\": {\n                    \"original\": \"http://example.com/original.jpg\",\n                    \"thumbnail\": \"http://example.com/thumbnail.jpg\"\n                },\n                \"alt\": \"Example\",\n                \"dimension\": {\n                    \"height\": 1920,\n                    \"width\": 1080\n                },\n                \"author_email\": \"author@example.com\"\n            }\n        ],\n        \"paging\": {\n            \"page\": 1,\n            \"pages\": 1,\n            \"limit\": 10,\n            \"total\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/images/{{ID}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"images",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Image",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/images/{{ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-1MU/VFDo2G5k5mN3PMWkqTdv86E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 16:42:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"660b8122-ac8f-11ed-8805-80e82cb6b6a3\",\n        \"url\": {\n            \"original\": \"http://example.com/original.jpg\",\n            \"thumbnail\": \"http://example.com/thumbnail.jpg\"\n        },\n        \"alt\": \"Example\",\n        \"dimension\": {\n            \"height\": 1920,\n            \"width\": 1080\n        },\n        \"author_email\": \"author@example.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"alt\": \"Example\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/images/{{ID}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"images",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Image",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"alt\": \"Example Updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/images/{{ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 17:11:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "original",
+									"type": "file",
+									"src": "/home/ari-salt/Pictures/Logo/logo_salt.png"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/home/ari-salt/Pictures/Logo/logo_salt.png"
+								},
+								{
+									"key": "alt",
+									"value": "SALT Logo",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "1920",
+									"type": "text"
+								},
+								{
+									"key": "width",
+									"value": "1080",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/v1/images",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"images"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Image",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "original",
+											"type": "file",
+											"src": "/home/ari-salt/Pictures/Logo/logo_salt.png"
+										},
+										{
+											"key": "thumbnail",
+											"type": "file",
+											"src": "/home/ari-salt/Pictures/Logo/logo_salt.png"
+										},
+										{
+											"key": "alt",
+											"value": "SALT Logo",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "1920",
+											"type": "text"
+										},
+										{
+											"key": "width",
+											"value": "1080",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{HOST}}/v1/images",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15c-0HB4sNBgVVweQLKLhBK8ZWfZ4Lw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 19:57:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"51e20dcd-eafb-4260-9f64-48280154f782\",\n        \"url\": {\n            \"original\": \"http://localhost:8080/static/images/original/ce06d65415d0_logo_salt.png\",\n            \"thumbnail\": \"http://localhost:8080/static/images/thumbnail/cb2e284cbc8c_logo_salt.png\"\n        },\n        \"alt\": \"SALT Logo\",\n        \"dimension\": {\n            \"height\": 1920,\n            \"width\": 1080\n        },\n        \"author_email\": \"author@example.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/images/{{ID}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"images",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Image",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/v1/images/{{ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"v1",
+										"images",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "content-type"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Feb 2023 20:50:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/ping",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ping",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ping",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "localhost:3000"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "content-type"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Feb 2023 14:58:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\"\n}"
+				}
+			]
+		}
+	]
+}
